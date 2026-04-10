@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMI Calculator</title>
+</head>
+
+<body>
+
+<h1>💪 BMI CALCULATOR</h1>
+
+<p>Nama:</p>
+<input id="name">
+
+<p>Berat (kg):</p>
+<input id="weight" type="number">
+
+<p>Tinggi (meter):</p>
+<input id="height" type="number">
+
+<button onclick="calcBMI()">Kira BMI</button>
+
+<h2 id="result"></h2>
+
+<script>
+function calcBMI() {
+    let name = document.getElementById("name").value;
+    let weight = document.getElementById("weight").value;
+    let height = document.getElementById("height").value;
+
+    let bmi = weight / (height * height);
+
+    let category = "";
+
+    if (bmi < 18.5) {
+        category = "KURANG BERAT BADAN";
+    } 
+    else if (bmi < 25) {
+        category = "NORMAL";
+    } 
+    else if (bmi < 30) {
+        category = "BERLEBIHAN";
+    } 
+    else {
+        category = "OBESITI";
+    }
+
+    document.getElementById("result").innerHTML =
+        "Hi " + name + ", BMI anda: " + bmi.toFixed(2) + " (" + category + ")";
+}
+</script>
+
+</body>
+</html>
